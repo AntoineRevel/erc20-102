@@ -20,11 +20,11 @@ contract AntoineRevel_SolutionTest {
         submitExercice();
     }
 
-    function startGetPoint() public{
-        ex1_claimedPoints();
+    function startClaimPoint() public{
+        start_ex1();
     }
 
-    function ex1_claimedPoints() private {
+    function start_ex1() private {
         claimableToken.claimTokens();
         evaluator.ex1_claimedPoints();
     }

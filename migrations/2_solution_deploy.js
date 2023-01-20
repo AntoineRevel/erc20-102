@@ -5,27 +5,28 @@ module.exports = (deployer, network, accounts) => {
     deployer.then(async () => {
         await deployExerciceSolution(deployer, network, accounts);
         await deployRecap(deployer, network, accounts);
-        await printPoint();
-        await myTest.startGetPoint();
-        await printPoint();
+        await printPoint("Before :");
+        await myTest.startClaimPoint();
+        await printPoint("After :");
     });
 };
 
-async function deployExerciceSolution(deployer, network, accounts) {
+async function deployExerciceSolution() {
     mySolution= await ExerciceSolution.new();
     myTest= await ExerciceSolutionTest.new(mySolution.address);
 }
 
-async function deployRecap(deployer, network, accounts) {
+async function deployRecap() {
     console.log("mySolution " + mySolution.address);
     console.log("myTest " + myTest.address);
 }
 
-async function printPoint(){
+async function printPoint(time){
     myBalance = await myTest.getBalancePointToken.call();
-    console.log("My balance : " + myBalance);
     myClaimableBalance = await myTest.getBalanceClaimableToken.call();
-    console.log("My ClaimableToken balance : " + myClaimableBalance);
+
+    result="My balance : " + myBalance + " | My ClaimableToken balance : " + myClaimableBalance
+
+    console.log(time);
+    console.log(result)
 }
-
-
