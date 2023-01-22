@@ -1,5 +1,6 @@
 var ExerciceSolution = artifacts.require("ExerciceSolution.sol");
-var ExerciceSolutionTest = artifacts.require("AntoineRevel_SolutionTest.sol")
+var ExerciceSolutionTest = artifacts.require("AntoineRevel_SolutionTest.sol");
+var ExerciceSolutionToken =artifacts.require("ExerciceSolutionToken.sol");
 
 var TDErc20 = artifacts.require("ERC20TD.sol");
 var ERC20Claimable = artifacts.require("ERC20Claimable.sol");
@@ -36,11 +37,14 @@ async function setStaticContracts() {
 async function deployExerciceSolution() {
     mySolution= await ExerciceSolution.new(ClaimableToken.address);
     myTest= await ExerciceSolutionTest.new(mySolution.address,Evaluator.address,TDToken.address,ClaimableToken.address);
+    mySolutionToken =await ExerciceSolutionToken.new(mySolution.address);
 }
 
 async function deploylocalExerciceSolution() {
     mySolution= await ExerciceSolution.new(LocalClaimableToken);
     myTest= await ExerciceSolutionTest.new(mySolution.address,LocalEvaluator,LocalTDToken,LocalClaimableToken);
+    mySolutionToken =await ExerciceSolutionToken.new(mySolution.address);
+
 }
 
 async function deployRecap() {

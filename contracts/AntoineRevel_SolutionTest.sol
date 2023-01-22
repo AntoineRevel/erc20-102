@@ -23,12 +23,27 @@ contract AntoineRevel_SolutionTest {
     function startClaimPoint() public{
         start_ex1();
         evaluator.ex2_claimedFromContract();
-        //evaluator.ex3_withdrawFromContract();
+        evaluator.ex3_withdrawFromContract();
+        start_ex4();
+        start_ex5();
+        evaluator.ex6_depositTokens();
+        evaluator.ex7_createERC20();
+        evaluator.ex8_depositAndMint();
     }
 
     function start_ex1() private {
         claimableToken.claimTokens();
         evaluator.ex1_claimedPoints();
+    }
+
+    function start_ex4() private {
+        claimableToken.approve(address(solution),1000000000000000000);
+        evaluator.ex4_approvedExerciceSolution();
+    }
+
+    function start_ex5() private {
+        claimableToken.approve(address(solution),0);
+        evaluator.ex5_revokedExerciceSolution();
     }
 
     function submitExercice() private {
