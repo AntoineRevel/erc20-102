@@ -23,6 +23,7 @@ contract AntoineRevel_SolutionTest {
     function startClaimPoint() public{
         start_ex1();
         evaluator.ex2_claimedFromContract();
+        //evaluator.ex3_withdrawFromContract();
     }
 
     function start_ex1() private {
