@@ -48,7 +48,6 @@ async function deploylocalExerciceSolution() {
     await mySolutionToken.setMinter(mySolution.address,true);
     myTest= await ExerciceSolutionTest.new(mySolution.address,LocalEvaluator,LocalTDToken,LocalClaimableToken,mySolutionToken.address);
 
-
 }
 
 async function deployRecap() {

@@ -57,7 +57,8 @@
     },
     {
       "stateMutability": "payable",
-      "type": "fallback"
+      "type": "fallback",
+      "payable": true
     },
     {
       "inputs": [
@@ -81,7 +82,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -100,7 +102,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -113,7 +116,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -132,7 +136,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -151,11 +156,13 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "stateMutability": "payable",
-      "type": "receive"
+      "type": "receive",
+      "payable": true
     },
     {
       "inputs": [],
@@ -250,7 +257,8 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.6.2+commit.bacdbe57\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract ERC20TD\",\"name\":\"_TDERC20\",\"type\":\"address\"},{\"internalType\":\"contract ERC20Claimable\",\"name\":\"_claimableERC20\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"erc20Address\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"claimableERC20Address\",\"type\":\"address\"}],\"name\":\"constructedCorrectly\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"ticker\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"supply\",\"type\":\"uint256\"}],\"name\":\"newRandomTickerAndSupply\",\"type\":\"event\"},{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_bytes32\",\"type\":\"bytes32\"}],\"name\":\"bytes32ToString\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex1_claimedPoints\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex2_claimedFromContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex3_withdrawFromContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex4_approvedExerciceSolution\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex5_revokedExerciceSolution\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex6_depositTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex7_createERC20\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex8_depositAndMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ex9_withdrawAndBurn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"exerciceProgression\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"hasBeenPaired\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextValueStoreRank\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"studentExerciceSolution\",\"outputs\":[{\"internalType\":\"contract IExerciceSolution\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IExerciceSolution\",\"name\":\"studentExercice\",\"type\":\"address\"}],\"name\":\"submitExercice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"teachers\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Evaluator.sol\":\"Evaluator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"urls\":[\"bzz-raw://991b44ff44e0496e8554a90f4c0512c28faed45104d40430019f3c67ea67740e\",\"dweb:/ipfs/Qmc3nRapVbcctELoZS5qe17zLkFB3bETBfwzCTMF1CSuGE\"]},\"@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol\":{\"keccak256\":\"0x9c0eb3b0e11d2480d49991dc384f1e5f9c9b9967cc81944d50916a9b9c6c4984\",\"urls\":[\"bzz-raw://99e4033d778624992e86f0b6d801a4f6d7b5c0cd5c79c1296be90a051ad5f5af\",\"dweb:/ipfs/QmShYmkUqh6pDEeoWadZ24icmCr4C2Xys1uE5boivPmbwf\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"urls\":[\"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08\",\"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"project:/contracts/ERC20Claimable.sol\":{\"keccak256\":\"0xb9e49611641a37b87fdeb91fd37a60de263664738920e952dd2a969ba3766e78\",\"urls\":[\"bzz-raw://7bc8c9cd99876e1a90d8246ced1b6718a37936157ab7136bd5bddc8eb9a69a2e\",\"dweb:/ipfs/QmPz1N241LYixffz5N5Sanc3ebBEWoXK7CnkZ34NfzueSz\"]},\"project:/contracts/ERC20TD.sol\":{\"keccak256\":\"0x2d0289b106398c6630a4379013bf0d7f42007e6ccea5788e1f9b30b58f4abc5b\",\"urls\":[\"bzz-raw://e617c8e5070215650ba33555cc03cbb759223fdf9bdfe1940860752a11fed224\",\"dweb:/ipfs/QmPNnQhMvs12oAKAMsLDaf7iDjTNUY9uYmLWgYWJsqSLFB\"]},\"project:/contracts/Evaluator.sol\":{\"keccak256\":\"0x4cd7cb9db1d93d7a04cf9e03ddbbd7fd45960cc587eec1f33c4a8d27fcf81b9f\",\"urls\":[\"bzz-raw://71e5eff08890cda161292a76f5a2635bbd53c59cbaf5be1b95e8042f89381e89\",\"dweb:/ipfs/QmVT8rUa5Go8VUjJrBqmGNKeSx73T272TZQfBAAnkzqgh3\"]},\"project:/contracts/ExerciceSolutionToken.sol\":{\"keccak256\":\"0xca5745f7f4399aae5ce342280ec7e9906d25cd7c013170e7a94186226fe5348a\",\"urls\":[\"bzz-raw://e30e0777b08e518cf77eba9077230917a0ad18dca7c3787a6e29df67c948c10d\",\"dweb:/ipfs/QmVmr9bJe3XzXX1hKPpyZkQaswpBeEiPA7h5KB93Ro8fr6\"]},\"project:/contracts/IERC20Mintable.sol\":{\"keccak256\":\"0x4507849b5895b7825144c0b4680baaa65a504756220e9d0b5649cfee173d7147\",\"urls\":[\"bzz-raw://e9633e98d719c835e062c865f76d250838980cca6c365013a801fde9f1e9b4d0\",\"dweb:/ipfs/Qma38ggHnPkCHUnBMrByDtKc6tzLNj8u28pCMnGNJzzcrX\"]},\"project:/contracts/IExerciceSolution.sol\":{\"keccak256\":\"0x697539bfa1579800f9875db2f7a947832659feaecbae67668837a87ba140ab6a\",\"urls\":[\"bzz-raw://8f2c6d0a49b6498f6614c97e5314065197d0e479a85aa4a4726cc4e2a26ce9fb\",\"dweb:/ipfs/QmQ8JvgeJFuuaSZPoagPFWmBvQk7VxCaZ6VNsZ76cFsR9g\"]}},\"version\":1}",
@@ -40123,7 +40131,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.10",
-  "updatedAt": "2023-01-23T10:46:10.011Z",
+  "updatedAt": "2023-01-23T10:51:27.404Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

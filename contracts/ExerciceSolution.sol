@@ -5,25 +5,28 @@ import "./IExerciceSolution.sol";
 import "./ERC20Claimable.sol";
 import "./ExerciceSolutionToken.sol";
 
-contract ExerciceSolution is IExerciceSolution{
+//Solution of TD ERC20 102 by Leo Trotin and Antoine Revel
+//ESILV FinTech 2022-2023
+
+contract ExerciceSolution is IExerciceSolution {
 
     ERC20Claimable claimableERC20;
     ExerciceSolutionToken solutionToken;
 
     mapping(address => uint256) public claimTokenBalances;
+
     event Withdrawal(address indexed user, uint256 amount);
 
-    constructor(ERC20Claimable _claimableERC20,ExerciceSolutionToken _solutionToken) public {
-        claimableERC20=_claimableERC20;
+    constructor(ERC20Claimable _claimableERC20, ExerciceSolutionToken _solutionToken) public {
+        claimableERC20 = _claimableERC20;
         claimableERC20.claimTokens();
-
-        solutionToken=_solutionToken;
+        solutionToken = _solutionToken;
     }
 
-    function claimTokensOnBehalf() external override{
+    function claimTokensOnBehalf() external override {
         address payable user = msg.sender;
-        uint256 claimedTokens =claimableERC20.claimTokens();
-        claimTokenBalances[user]+=claimedTokens;
+        uint256 claimedTokens = claimableERC20.claimTokens();
+        claimTokenBalances[user] += claimedTokens;
         solutionToken.mint(user, claimedTokens);
     }
 
@@ -36,10 +39,9 @@ contract ExerciceSolution is IExerciceSolution{
         address payable user = msg.sender;
         require(claimTokenBalances[user] >= amountToWithdraw, "Insufficient token balance");
         claimTokenBalances[user] -= amountToWithdraw;
-        claimableERC20.transfer(user,amountToWithdraw);
+        claimableERC20.transfer(user, amountToWithdraw);
         emit Withdrawal(user, amountToWithdraw);
-
-        solutionToken.burn(user,amountToWithdraw);
+        solutionToken.burn(user, amountToWithdraw);
         return amountToWithdraw;
     }
 
@@ -47,12 +49,12 @@ contract ExerciceSolution is IExerciceSolution{
         address user = msg.sender;
         require(claimableERC20.transferFrom(user, address(this), amountToWithdraw), "transferFrom failed");
         claimTokenBalances[user] += amountToWithdraw;
-        solutionToken.mint(user,amountToWithdraw);
+        solutionToken.mint(user, amountToWithdraw);
         return amountToWithdraw;
     }
 
     function setERC20DepositAddress() external override {
-        solutionToken=ExerciceSolutionToken(msg.sender);
+        solutionToken = ExerciceSolutionToken(msg.sender);
     }
 
     function getERC20DepositAddress() external override returns (address){

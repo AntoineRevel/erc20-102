@@ -12,18 +12,18 @@ contract AntoineRevel_SolutionTest {
     ExerciceSolutionToken solutionToken;
 
     IExerciceSolution solution;
-    
-    constructor(IExerciceSolution _solution,Evaluator _evaluator,ERC20TD _tdToken,ERC20Claimable _claimableERC20,ExerciceSolutionToken _solutionToken) public{
-        evaluator=_evaluator;
-        tdToken=_tdToken;
-        claimableToken=_claimableERC20;
-        solution=_solution;
-        solutionToken=_solutionToken;
+
+    constructor(IExerciceSolution _solution, Evaluator _evaluator, ERC20TD _tdToken, ERC20Claimable _claimableERC20, ExerciceSolutionToken _solutionToken) public {
+        evaluator = _evaluator;
+        tdToken = _tdToken;
+        claimableToken = _claimableERC20;
+        solution = _solution;
+        solutionToken = _solutionToken;
 
         submitExercice();
     }
 
-    function startClaimPoint() public{
+    function startClaimPoint() public {
         start_ex1();
         evaluator.ex2_claimedFromContract();
         evaluator.ex3_withdrawFromContract();
@@ -41,12 +41,12 @@ contract AntoineRevel_SolutionTest {
     }
 
     function start_ex4() private {
-        claimableToken.approve(address(solution),1000000000000000000);
+        claimableToken.approve(address(solution), 1000000000000000000);
         evaluator.ex4_approvedExerciceSolution();
     }
 
     function start_ex5() private {
-        claimableToken.approve(address(solution),0);
+        claimableToken.approve(address(solution), 0);
         evaluator.ex5_revokedExerciceSolution();
     }
 
