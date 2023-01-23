@@ -13,8 +13,6 @@ interface IExerciceSolution
 
     function depositTokens(uint256 amountToWithdraw) external returns (uint256);
 
-    function setERC20DepositAddress() external;
-
     function getERC20DepositAddress() external returns (address);
 
 
