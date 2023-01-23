@@ -53,10 +53,6 @@ contract ExerciceSolution is IExerciceSolution {
         return amountToWithdraw;
     }
 
-    function setERC20DepositAddress() external override {
-        solutionToken = ExerciceSolutionToken(msg.sender);
-    }
-
     function getERC20DepositAddress() external override returns (address){
         return address(solutionToken);
     }

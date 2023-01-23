@@ -24,7 +24,7 @@ contract ExerciceSolutionToken is ERC20("AntoineRevel_SolutionToken", "ARST"), E
     }
 
     function mint(address toAddress, uint256 amount) override external {
-        require(allowMinters[msg.sender], "You are not a minterrre");
+        require(allowMinters[msg.sender], "You are not a minter");
         _mint(toAddress, amount);
     }
 
