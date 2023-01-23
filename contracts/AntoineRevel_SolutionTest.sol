@@ -3,19 +3,22 @@ pragma solidity ^0.6.0;
 import "./Evaluator.sol";
 import "./ERC20TD.sol";
 import "./ERC20Claimable.sol";
+import "./ExerciceSolutionToken.sol";
 
 contract AntoineRevel_SolutionTest {
     Evaluator evaluator;
     ERC20TD tdToken;
     ERC20Claimable claimableToken;
+    ExerciceSolutionToken solutionToken;
 
     IExerciceSolution solution;
     
-    constructor(IExerciceSolution _solution,Evaluator _evaluator,ERC20TD _tdToken,ERC20Claimable _claimableERC20) public{
+    constructor(IExerciceSolution _solution,Evaluator _evaluator,ERC20TD _tdToken,ERC20Claimable _claimableERC20,ExerciceSolutionToken _solutionToken) public{
         evaluator=_evaluator;
         tdToken=_tdToken;
         claimableToken=_claimableERC20;
         solution=_solution;
+        solutionToken=_solutionToken;
 
         submitExercice();
     }
@@ -29,6 +32,7 @@ contract AntoineRevel_SolutionTest {
         evaluator.ex6_depositTokens();
         evaluator.ex7_createERC20();
         evaluator.ex8_depositAndMint();
+        start_ex9();
     }
 
     function start_ex1() private {
@@ -44,6 +48,10 @@ contract AntoineRevel_SolutionTest {
     function start_ex5() private {
         claimableToken.approve(address(solution),0);
         evaluator.ex5_revokedExerciceSolution();
+    }
+
+    function start_ex9() private {
+        evaluator.ex9_withdrawAndBurn();
     }
 
     function submitExercice() private {

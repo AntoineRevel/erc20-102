@@ -35,15 +35,19 @@ async function setStaticContracts() {
 }
 
 async function deployExerciceSolution() {
-    mySolution= await ExerciceSolution.new(ClaimableToken.address);
-    myTest= await ExerciceSolutionTest.new(mySolution.address,Evaluator.address,TDToken.address,ClaimableToken.address);
-    mySolutionToken =await ExerciceSolutionToken.new(mySolution.address);
+    mySolutionToken =await ExerciceSolutionToken.new();
+    mySolution= await ExerciceSolution.new(ClaimableToken.address,mySolutionToken.address);
+    await mySolutionToken.setMinter(mySolution.address,true);
+    myTest= await ExerciceSolutionTest.new(mySolution.address,Evaluator.address,TDToken.address,ClaimableToken.address,mySolutionToken.address);
+
 }
 
 async function deploylocalExerciceSolution() {
-    mySolution= await ExerciceSolution.new(LocalClaimableToken);
-    myTest= await ExerciceSolutionTest.new(mySolution.address,LocalEvaluator,LocalTDToken,LocalClaimableToken);
-    mySolutionToken =await ExerciceSolutionToken.new(mySolution.address);
+    mySolutionToken =await ExerciceSolutionToken.new();
+    mySolution= await ExerciceSolution.new(LocalClaimableToken,mySolutionToken.address);
+    await mySolutionToken.setMinter(mySolution.address,true);
+    myTest= await ExerciceSolutionTest.new(mySolution.address,LocalEvaluator,LocalTDToken,LocalClaimableToken,mySolutionToken.address);
+
 
 }
 
