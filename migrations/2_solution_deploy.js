@@ -59,6 +59,6 @@ async function printPoint(){
     myBalance = await myTest.getBalancePointToken.call();
     myClaimableBalance = await myTest.getBalanceClaimableToken.call();
 
-    result="My balance : " + myBalance + " | My ClaimableToken balance : " + myClaimableBalance
+    result="My balance : " + myBalance
     console.log(result)
 }
